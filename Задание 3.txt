@@ -1,0 +1,56 @@
+***************************************************************************************************
+Задание 3. Числовые значения символов нижнего регистра в коде ASCII отличаются от значений символов 
+верхнего регистра на величину 32. Используя эту  информацию, написать программу, которая считывает 
+с клавиатуры и конвертирует все символы нижнего регистра в символы верхнего регистра и наоборот.
+***************************************************************************************************
+
+using System;
+
+namespace DZ_vvod
+{
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("****************************************************");
+            Console.WriteLine("!!! МЕТОД РАБОТАЕТ ТОЛЬКО С ЛАТИНСКИМИ СИМВОЛАМИ !!!");
+            Console.WriteLine("****************************************************");
+            Console.WriteLine();
+            Console.WriteLine("Сейчас я превращу ЗАГЛАВНЫЕ БУКВЫ в прописные =)");
+            Console.WriteLine("Введите символы, завершая ввод точкой: ");
+            Console.WriteLine();
+            string symbols = Console.ReadLine();
+            char[] symbolArr = new char[symbols.Length];
+            symbols.CopyTo(0, symbolArr, 0, symbols.Length);
+            
+            Console.WriteLine("*******************************************************");
+            for(int i=0; i < symbols.Length; ++i)
+            {
+                if (symbolArr[i] == 46)
+                {
+                    break;
+                }
+                else if (symbolArr[i] >= 65 && symbolArr[i] <= 90)
+                {
+                    symbolArr[i] += (char)32;
+                    
+                }
+                else if(symbolArr[i] >= 97 && symbolArr[i] <= 122)
+                {
+                    symbolArr[i] -= (char)32;
+                    
+                }
+                
+                
+            }
+            Console.Write("Полученная строка: ");
+            Console.WriteLine(symbolArr);
+
+        }
+
+        
+    }
+
+    
+}

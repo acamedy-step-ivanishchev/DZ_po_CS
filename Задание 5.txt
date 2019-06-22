@@ -1,0 +1,55 @@
+***************************************************************************************************
+Задание 5.  Дано целое число N (> 0), найти число, полученное при прочтении числа N справа налево. 
+Например, если было введено число 345,  то  программа должна вывести число 543.
+***************************************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace test1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+            int n = 0;
+            Console.WriteLine("Введите целое положительное число: ");
+            n = int.Parse(Console.ReadLine());
+            if (n >= 10 && n <= 99)
+            {
+                
+                string t = (n /10).ToString();
+                string y = (n % 10).ToString();
+
+                string strRes = y + t;
+                int intRes = int.Parse(strRes);
+                Console.WriteLine(intRes);
+            }
+            else if (n >= 100 && n <= 999)
+            {
+                string r = (n / 100).ToString();
+                string t = ((n % 100) / 10).ToString();
+                string y = (n % 10).ToString();
+
+                string strRes = y + t + r;
+                int intRes = int.Parse(strRes);
+                Console.WriteLine(intRes);
+            }
+            else if (n >= 1000 && n <= 9999)
+            {
+                string e = (n / 1000).ToString();
+                string r = ((n % 1000)/100).ToString();
+                string t = ((n % 100) / 10).ToString();
+                string y = (n % 10).ToString();
+
+                string strRes = y + t + r+e;
+                int intRes = int.Parse(strRes);
+                Console.WriteLine(intRes);
+            }
+        }
+    }
+}

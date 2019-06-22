@@ -1,0 +1,57 @@
+***************************************************************************************************
+Задание 2. Ввести с клавиатуры номер трамвайного билета (6-значное число) и про-верить является ли 
+данный билет счастливым (если на билете напечатано шестизначное число, и сумма первых трёх цифр 
+равна сумме последних трёх, то этот билет считается счастливым).
+***************************************************************************************************
+
+using System;
+
+namespace DZ_vvod
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            const int rr = 6; 
+            int[] luckyNum = new int[rr];
+            int i = 0;
+            while (i < rr)
+            {
+                Console.WriteLine("Введите цифру номера билета и нажмите Enter");
+                
+                luckyNum[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                i++;
+            }
+            int leftNumber = 0;
+            int rightNumber = 0;
+            
+            for (i = 0; i < rr; i++)
+            {
+                if (i < 3)
+                {
+                    leftNumber += luckyNum[i];
+                }
+                else
+                {
+                    rightNumber += luckyNum[i];
+                }
+                
+            }
+            if (leftNumber == rightNumber)
+            {
+                Console.WriteLine("**********************************");
+                Console.WriteLine("У вас счастливый билет: {0} = {1}", leftNumber, rightNumber);
+                Console.WriteLine("**********************************");
+            }
+
+            else
+            {
+                Console.WriteLine("**********************************");
+                Console.WriteLine("У вас не счастливый билет: {0} != {1}", leftNumber, rightNumber);
+                Console.WriteLine("**********************************");
+            }
+        }   
+    }  
+}
